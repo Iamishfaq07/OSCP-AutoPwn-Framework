@@ -1,0 +1,45 @@
+# OSCP AutoPwn Framework - Default Configuration
+# Edit this file to customize the framework for your lab
+
+# ── Wordlists ──────────────────────────────────────────────────────────────────
+# Paths are checked in order; first existing one is used
+dir_wordlist: /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+pass_wordlist: /usr/share/wordlists/rockyou.txt
+user_wordlist: /usr/share/seclists/Usernames/top-usernames-shortlist.txt
+
+# ── Nmap ───────────────────────────────────────────────────────────────────────
+nmap_timing: T4
+nmap_scripts: "vulners,smb-os-discovery,http-enum,ftp-anon,ssh-auth-methods,banner"
+nmap_timeout: 600  # seconds
+
+# ── Web ────────────────────────────────────────────────────────────────────────
+gobuster_threads: 30
+gobuster_timeout: 180
+nikto_timeout: 300
+web_extensions: "php,html,txt,asp,aspx,jsp,py,sh,bak,conf,xml,json"
+
+# ── Shell ──────────────────────────────────────────────────────────────────────
+lport: 4444
+# lhost: auto-detect from tun0
+
+# ── Output ─────────────────────────────────────────────────────────────────────
+save_screenshots: false
+verbose: false
+
+# ── Rate Limiting ──────────────────────────────────────────────────────────────
+rate_limit_delay: 0.1  # seconds between requests
+
+# ── Metasploit ─────────────────────────────────────────────────────────────────
+no_metasploit: false
+msf_workspace: autopwn
+
+# ── Timeouts ───────────────────────────────────────────────────────────────────
+timeout: 300
+
+# ── Custom Payloads ────────────────────────────────────────────────────────────
+# Add extra reverse shell types or custom payloads here
+custom_payloads: []
+
+# ── Exclude ────────────────────────────────────────────────────────────────────
+# Services to skip even if discovered
+exclude_services: []
